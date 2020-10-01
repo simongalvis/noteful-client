@@ -54,7 +54,7 @@ class App extends Component {
 
     handleAddNote = note => {
         this.setState({
-            folders: [...this.state.notes, note]
+            notes: [...this.state.notes, note]
         })
         console.log('note has been added')
      }
@@ -109,6 +109,7 @@ class App extends Component {
             selectedFolder: this.state.selectedFolder,
             deleteNote: this.handleDeleteNote,
             addFolder: this.handleAddFolder,
+            addNote:this.handleAddNote,
             selectFolder: this.handleSelectFolder,
             
         };

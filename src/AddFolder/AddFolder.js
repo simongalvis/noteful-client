@@ -30,7 +30,9 @@ handleSubmit = e =>{
      //this.context.addFolder(data)
      //this.props.history.push('/')} )
     //.then(resJson => console.log(resJson))
-    .then(this.context.addFolder())
+    .then(data => this.context.addFolder(data))
+    .then(this.props.history.push('/'))
+
     .catch(err => console.log('We have an error: ' + err))
 
 }
