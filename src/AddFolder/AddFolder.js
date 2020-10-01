@@ -28,11 +28,24 @@ handleSubmit = e =>{
           return res.json().then(error => {
               throw error
           })
-      }  
-        res.json()})
+      }
+
+        return res.json()})
+    
+   // .then(resJson => {
+      //  if(resJson.name.trim.length === 0){
+      //      return resJson.then(error =>{
+          //      throw console.log(error + 'you cannot enter nothing')
+        //    })
+           
+      //  }
+      //  return resJson
+    //})
     .then(data => this.context.addFolder(data))
     .then(this.props.history.push('/'))
     .catch(err => console.log('We have an error: ' + err))
+
+    
 
 }
 
