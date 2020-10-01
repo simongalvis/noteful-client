@@ -49,14 +49,14 @@ class App extends Component {
        this.setState({
            folders: [...this.state.folders, folder]
        })
-       console.log('Folder has been added. Booyahhh!')
+       console.log('Folder has been added')
     }
 
     handleAddNote = note => {
         this.setState({
             folders: [...this.state.notes, note]
         })
-        console.log('note has been added. Booyahhh!')
+        console.log('note has been added')
      }
      handleSelectFolder = folder =>{
          this.setState({

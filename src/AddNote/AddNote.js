@@ -23,7 +23,7 @@ handleSubmit = e =>{
     })
     .then(res=> res.json())
     .then(resJson => console.log(resJson))
-    console.log('You submitted the form using React. Good job, champion! Keep it up!')
+    console.log('You submitted the form using React.')
 }
 
     render(){
