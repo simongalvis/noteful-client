@@ -58,10 +58,11 @@ class App extends Component {
         })
         console.log('note has been added')
      }
-     handleSelectFolder = folder =>{
+     handleSelectFolder = (event, id) =>{
          this.setState({
-             selectedFolder: folder
+             selectedFolder: id
          })
+         //console.log('handleSelectFolderIsWorking')
      }
 
 
@@ -105,8 +106,11 @@ class App extends Component {
         const value = {
             notes: this.state.notes,
             folders: this.state.folders,
+            selectedFolder: this.state.selectedFolder,
             deleteNote: this.handleDeleteNote,
-            addFolder: this.handleAddFolder
+            addFolder: this.handleAddFolder,
+            selectFolder: this.handleSelectFolder,
+            
         };
         return (
             <ApiContext.Provider value={value}>

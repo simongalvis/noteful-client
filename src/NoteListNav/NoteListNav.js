@@ -9,6 +9,7 @@ import './NoteListNav.css'
 export default class NoteListNav extends React.Component {
   static contextType = ApiContext;
 
+
   render() {
     const { folders=[], notes=[] } = this.context
     return (
@@ -19,7 +20,7 @@ export default class NoteListNav extends React.Component {
               <NavLink
                 className='NoteListNav__folder-link'
                 to={`/folder/${folder.id}`}
-                onClick={console.log(folder.id)}
+                onClick={e => this.context.selectFolder(e, folder.id)}
               >
                 <span className='NoteListNav__num-notes' >
                   {countNotesForFolder(notes, folder.id)}

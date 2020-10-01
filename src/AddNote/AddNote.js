@@ -1,10 +1,12 @@
 import React from 'react';
 import './AddNote.css';
 import config from'../config';
+import ApiContext from '../ApiContext';
 
 
 
 class AddNote extends React.Component{
+static contextType = ApiContext;
 
 handleSubmit = e =>{
     e.preventDefault();
@@ -14,7 +16,7 @@ handleSubmit = e =>{
         id: id.value,
 
     } 
-    fetch(`${config.API_ENDPOINT}/notes`, {
+    fetch(`${config.API_ENDPOINT}/folders/${this.context.selectedFolder}`, {
         method: 'POST',
         body: JSON.stringify(note),
         headers: {
