@@ -27,11 +27,17 @@ handleSubmit = e =>{
             'content-type': 'application/json',
         }
     })
-    .then(res=> res.json())
+    .then(res=> {
+      if(!res.ok){
+          return res.json.then(error =>{
+              throw error
+          })
+      }
+        res.json()})
     .then(data => this.context.addNote(data))
     .then(this.props.history.push('/'))
     .then(resJson => console.log(resJson))
-    console.log('You submitted the form using React.')
+    //console.log('You submitted the form using React.')
 }
 
     render(){

@@ -12,8 +12,9 @@ handleSubmit = e =>{
     e.preventDefault();
     const { folderTitle, id } = e.target
     const folder = {
+        id: id.value,
         name: folderTitle.value,
-        id: id.value
+        
     }
     fetch(`${config.API_ENDPOINT}/folders`,{
         method: 'POST',
@@ -22,20 +23,20 @@ handleSubmit = e =>{
             'content-type': 'application/json',
         }
     })
-    .then(res => res.json())
-    
-    //.then(data => {
-     //name.value = ''
-     //id.value = ''
-     //this.context.addFolder(data)
-     //this.props.history.push('/')} )
-    //.then(resJson => console.log(resJson))
+    .then(res => {
+      if(!res.ok){
+          return res.json().then(error => {
+              throw error
+          })
+      }  
+        res.json()})
     .then(data => this.context.addFolder(data))
     .then(this.props.history.push('/'))
-
     .catch(err => console.log('We have an error: ' + err))
 
 }
+
+handleCancel = (e) => this.props.history.push('/');
 
     render(){
         return(
@@ -51,9 +52,11 @@ handleSubmit = e =>{
                                onChange={e=> console.log(e.target.value)} 
                                required/>
                         <button type='submit'>Submit</button>
+                        
                           
                        
                     </form>
+                    <button onClick={ e => this.handleCancel(e)}>Cancel</button>
             </section>
         )
     }

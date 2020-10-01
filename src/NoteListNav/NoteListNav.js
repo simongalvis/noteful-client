@@ -27,7 +27,9 @@ export default class NoteListNav extends React.Component {
                 </span>
                 {folder.name}
               </NavLink>
+              ${console.log(folder)}
             </li>
+            
           )}
         </ul>
         <div className='NoteListNav__button-wrapper'>
