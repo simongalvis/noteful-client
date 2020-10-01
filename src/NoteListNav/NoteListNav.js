@@ -19,8 +19,9 @@ export default class NoteListNav extends React.Component {
               <NavLink
                 className='NoteListNav__folder-link'
                 to={`/folder/${folder.id}`}
+                onClick={console.log(folder.id)}
               >
-                <span className='NoteListNav__num-notes'>
+                <span className='NoteListNav__num-notes' >
                   {countNotesForFolder(notes, folder.id)}
                 </span>
                 {folder.name}
