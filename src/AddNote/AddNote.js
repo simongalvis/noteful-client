@@ -35,7 +35,7 @@ handleSubmit = e =>{
               throw error
           })
       }
-        res.json()})
+       return res.json()})
     .then(data => this.context.addNote(data))
     .then(this.props.history.push('/'))
     .then(resJson => console.log(resJson))
