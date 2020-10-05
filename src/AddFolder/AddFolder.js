@@ -1,6 +1,7 @@
 import React from 'react';
 import './AddFolder.css';
 import config from '../config';
+import PropTypes from 'prop-types';
 import ApiContext from '../ApiContext';
 
 
@@ -92,3 +93,7 @@ handleCancel = (e) => this.props.history.push('/');
 }
 
 export default AddFolder;
+
+AddFolder.PropTypes = {
+    
+}
