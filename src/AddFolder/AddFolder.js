@@ -18,10 +18,10 @@ handleSubmit = e =>{
     e.preventDefault();
     const { folderTitle, id } = e.target 
     
-    //if (!folderTitle.trim ){
-      // this.setState({blankSubmitErrorMsg: "You must submit a value"})
-      //return;
-    //}
+    if (folderTitle.trim){
+       this.setState({blankSubmitErrorMsg: "You must submit a value"})
+      return alert(this.state.blankSubmitErrorMsg);
+    }
     
     const folder = {
         id: id.value,
@@ -44,14 +44,14 @@ handleSubmit = e =>{
 
         return res.json()})
     
-   // .then(resJson => {
+  //  .then(resJson => {
       //  if(resJson.name.trim.length === 0){
-      //      return resJson.then(error =>{
+        //    return resJson.then(error =>{
           //      throw console.log(error + 'you cannot enter nothing')
-        //    })
+          //  })
            
-      //  }
-      //  return resJson
+       // }
+       // return resJson
     //})
     .then(data => this.context.addFolder(data))
     .then(this.props.history.push('/'))
