@@ -8,6 +8,8 @@ import ApiContext from '../ApiContext';
 class AddNote extends React.Component{
 static contextType = ApiContext;
 
+
+
 handleSubmit = e =>{
     e.preventDefault();
     const {noteName, id, noteContent} = e.target;

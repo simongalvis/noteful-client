@@ -8,9 +8,21 @@ import ApiContext from '../ApiContext';
 class AddFolder extends React.Component{
     static contextType = ApiContext;
 
+    state = {
+        blankSubmitErrorMsg: ''
+    
+      }
+    
+
 handleSubmit = e =>{
     e.preventDefault();
-    const { folderTitle, id } = e.target
+    const { folderTitle, id } = e.target 
+    
+    //if (!folderTitle.trim ){
+      // this.setState({blankSubmitErrorMsg: "You must submit a value"})
+      //return;
+    //}
+    
     const folder = {
         id: id.value,
         name: folderTitle.value,
@@ -63,6 +75,7 @@ handleCancel = (e) => this.props.history.push('/');
                                id='folderTitle' 
                                placeholder='Folder Name Here' 
                                onChange={e=> console.log(e.target.value)} 
+                               //onClick={}
                                required/>
                         <button type='submit'>Submit</button>
                         
@@ -70,6 +83,8 @@ handleCancel = (e) => this.props.history.push('/');
                        
                     </form>
                     <button onClick={ e => this.handleCancel(e)}>Cancel</button>
+                  
+
             </section>
         )
     }

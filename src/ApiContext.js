@@ -9,4 +9,5 @@ export default React.createContext({
   deleteNote: () => {},
   selectFolder: () => {},
   
+  
 })
