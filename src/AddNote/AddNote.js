@@ -13,6 +13,11 @@ static contextType = ApiContext;
 handleSubmit = e =>{
     e.preventDefault();
     const {noteName, id, noteContent} = e.target;
+    
+    if(!noteName.value.trim()){
+       return alert('You must submit a value!')
+    }
+
     const note = {
         name: noteName.value,
         id: id.value,

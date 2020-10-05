@@ -8,26 +8,27 @@ import ApiContext from '../ApiContext';
 class AddFolder extends React.Component{
     static contextType = ApiContext;
 
-    state = {
-        blankSubmitErrorMsg: ''
-    
-      }
+
     
 
 handleSubmit = e =>{
     e.preventDefault();
-    const { folderTitle, id } = e.target 
+    const { folderTitle, id } = e.target; 
     
-    if (folderTitle.trim){
-       this.setState({blankSubmitErrorMsg: "You must submit a value"})
-      return alert(this.state.blankSubmitErrorMsg);
-    }
+    
+    if (!folderTitle.value.trim()){
+        
+       return alert("You must submit a value!");
+     }
+    
     
     const folder = {
         id: id.value,
         name: folderTitle.value,
         
     }
+
+
     fetch(`${config.API_ENDPOINT}/folders`,{
         method: 'POST',
         body: JSON.stringify(folder),
