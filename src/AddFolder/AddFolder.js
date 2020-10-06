@@ -1,7 +1,6 @@
 import React from 'react';
 import './AddFolder.css';
 import config from '../config';
-import PropTypes from 'prop-types';
 import ApiContext from '../ApiContext';
 
 
@@ -46,15 +45,6 @@ handleSubmit = e =>{
 
         return res.json()})
     
-  //  .then(resJson => {
-      //  if(resJson.name.trim.length === 0){
-        //    return resJson.then(error =>{
-          //      throw console.log(error + 'you cannot enter nothing')
-          //  })
-           
-       // }
-       // return resJson
-    //})
     .then(data => this.context.addFolder(data))
     .then(this.props.history.push('/'))
     .catch(err => console.log('We have an error: ' + err))
@@ -76,7 +66,7 @@ handleCancel = (e) => this.props.history.push('/');
                                name='folderTitle' 
                                id='folderTitle' 
                                placeholder='Folder Name Here' 
-                               onChange={e=> console.log(e.target.value)} 
+                               //onChange={e=> console.log(e.target.value)} 
                                //onClick={}
                                required/>
                         <button type='submit'>Submit</button>
@@ -94,6 +84,3 @@ handleCancel = (e) => this.props.history.push('/');
 
 export default AddFolder;
 
-AddFolder.PropTypes = {
-    
-}

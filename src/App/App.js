@@ -8,8 +8,10 @@ import NotePageMain from '../NotePageMain/NotePageMain';
 import ApiContext from '../ApiContext';
 import config from '../config';
 import './App.css';
+
 import AddFolder from '../AddFolder/AddFolder';
 import AddNote from '../AddNote/AddNote';
+import FormError from '../FormError';
 
 class App extends Component {
     state = {
@@ -49,14 +51,14 @@ class App extends Component {
        this.setState({
            folders: [...this.state.folders, folder]
        })
-       console.log('Folder has been added')
+       //console.log('Folder has been added')
     }
 
     handleAddNote = note => {
         this.setState({
             notes: [...this.state.notes, note]
         })
-        console.log('note has been added')
+        //console.log('note has been added')
      }
      handleSelectFolder = (event, id) =>{
          this.setState({
@@ -116,14 +118,14 @@ class App extends Component {
         return (
             <ApiContext.Provider value={value}>
                 <div className="App">
-                    <nav className="App__nav">{this.renderNavRoutes()}</nav>
+                    <nav className="App__nav"><FormError>{this.renderNavRoutes()}</FormError></nav>
                     <header className="App__header">
                         <h1>
                             <Link to="/">Noteful</Link>{' '}
                             <FontAwesomeIcon icon="check-double" />
                         </h1>
                     </header>
-                    <main className="App__main">{this.renderMainRoutes()}</main>
+                    <main className="App__main"><FormError>{this.renderMainRoutes()}</FormError></main>
                 </div>
             </ApiContext.Provider>
         );

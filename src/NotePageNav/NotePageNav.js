@@ -43,6 +43,6 @@ export default class NotePageNav extends React.Component {
     )
   }
 }
-NotePageNav.PropTypes = {
+NotePageNav.propTypes = {
   noteId:PropTypes.string,
 }

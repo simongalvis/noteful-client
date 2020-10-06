@@ -38,6 +38,6 @@ export default class NotePageMain extends React.Component {
     )
   }
 }
-NotePageMain.PropTypes = {
+NotePageMain.propTypes = {
   noteId:PropTypes.string,
 }
