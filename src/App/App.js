@@ -64,7 +64,7 @@ class App extends Component {
          this.setState({
              selectedFolder: id
          })
-         //console.log('handleSelectFolderIsWorking')
+         console.log('handleSelectFolderIsWorking')
      }
 
 
