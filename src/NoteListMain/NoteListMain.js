@@ -17,15 +17,16 @@ export default class NoteListMain extends React.Component {
   static contextType = ApiContext
 
   render() {
-    const { folderId } = this.props.match.params
-   // console.log(this.props.match.params)
     const { notes=[] } = this.context
+    const { folderId } = this.props.match.params
     const notesForFolder = getNotesForFolder(notes, folderId)
     return (
       <section className='NoteListMain'>
         <ul>
           {notesForFolder.map(note =>
+          
             <li key={note.id}>
+              
               <Note
                 id={note.id}
                 name={note.name}
@@ -51,5 +52,6 @@ export default class NoteListMain extends React.Component {
   }
 }
 NoteListMain.propTypes = {
-  folderId: PropTypes.string,
+  
+  match: PropTypes.object.isRequired
 }

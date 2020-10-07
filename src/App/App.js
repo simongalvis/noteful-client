@@ -61,10 +61,15 @@ class App extends Component {
         //console.log('note has been added')
      }
      handleSelectFolder = (event, id) =>{
-         this.setState({
-             selectedFolder: id
+         //console.log(event.target.value);
+         let folderObj = this.state.folders.filter((folder) =>{
+             return folder.name === event.target.value
          })
-         console.log('handleSelectFolderIsWorking')
+         //console.log(folderObj)
+         this.setState({
+             selectedFolder: folderObj[0].id
+         })
+        // console.log('handleSelectFolderIsWorking')
      }
 
 

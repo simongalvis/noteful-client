@@ -19,7 +19,9 @@ export default class NotePageMain extends React.Component {
 
   render() {
     const { notes=[] } = this.context
+    console.log(typeof notes)
     const { noteId } = this.props.match.params
+    console.log( typeof this.props.match);
     const note = findNote(notes, noteId) || { content: '' }
     return (
       <section className='NotePageMain'>
@@ -39,5 +41,6 @@ export default class NotePageMain extends React.Component {
   }
 }
 NotePageMain.propTypes = {
-  noteId:PropTypes.string,
+  match:  PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 }

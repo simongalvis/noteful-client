@@ -2,6 +2,8 @@ import React from 'react';
 import './AddFolder.css';
 import config from '../config';
 import ApiContext from '../ApiContext';
+import FormError from '../FormError';
+import PropTypes from 'prop-types';
 
 
 
@@ -57,10 +59,10 @@ handleCancel = (e) => this.props.history.push('/');
 
     render(){
         return(
-
+        <FormError>
             <section className='AddFolder'>
                 <h2>Create a Folder</h2>
-                    <form className='AddFolderForm' onSubmit={this.handleSubmit}>
+                    <form className='AddFolderForm' onSubmit={this.handleSubmit} autoComplete='off'>
                         <label htmlFor='folderTitle'>Folder Title</label>
                         <input type='text'
                                name='folderTitle' 
@@ -78,9 +80,14 @@ handleCancel = (e) => this.props.history.push('/');
                   
 
             </section>
+
+            </FormError>
         )
     }
 }
 
 export default AddFolder;
 
+AddFolder.propTypes = {
+    history: PropTypes.object.isRequired,
+}
