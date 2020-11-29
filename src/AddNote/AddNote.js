@@ -15,17 +15,16 @@ static contextType = ApiContext;
 
 handleSubmit = e =>{
     e.preventDefault();
-    const {noteName, id, noteContent} = e.target;
+    const {noteName,  noteContent} = e.target;
     
+    console.log(noteContent.value)
     if(!noteName.value.trim()){
        return alert('You must submit a value!')
     }
 
     const note = {
-        name: noteName.value,
-        id: id.value,
-        folderId: this.context.selectedFolder,
-        modified: new Date(),
+        title: noteName.value,
+        folder_id: this.context.selectedFolder,
         content:noteContent.value,
 
     } 
@@ -44,9 +43,11 @@ handleSubmit = e =>{
           })
       }
        return res.json()})
+    
     .then(data => this.context.addNote(data))
+    .then(this.context.selectFolder(""))
     .then(this.props.history.push('/'))
-    .catch(err => console.log('We have an error: ' + err))
+    .catch(err => console.log('We have an error: ' + JSON.stringify(err)))
     //console.log('You submitted the form using React.')
 }
 
@@ -64,7 +65,7 @@ handleSubmit = e =>{
                         <textarea id='noteContent' name='noteContent' placeholder='Input note content here'></textarea>
                         <label htmlFor='folderChoice'>Note folder: {' '}</label>
 
-                        <select name='folderChoice' onChange={e => this.context.selectFolder(e)} required>
+                        <select name='folderChoice' onChange={e =>  this.context.selectFolder(e, this.context.folders.filter(folder => folder.name == e.target.value)[0].id)} /* onChange={e => this.context.selectFolder(e, e.target.value.id)} */ required>
                          <option/>
                          {this.context.folders.map(folder =>
                         <option name={folder.name}
