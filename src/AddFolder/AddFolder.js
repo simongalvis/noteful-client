@@ -17,7 +17,7 @@ handleSubmit = e =>{
     e.preventDefault();
     const { folderTitle } = e.target; 
     
-    console.log(folderTitle.id)
+    //console.log(folderTitle.id)
     if (!folderTitle.value.trim()){
         
        return alert("You must submit a value!");
@@ -49,7 +49,7 @@ handleSubmit = e =>{
     
     .then(data => this.context.addFolder(data))
     .then(this.props.history.push('/'))
-    .catch(err => console.log('We have an error: ' + JSON.stringify(err) ))
+    .catch(err => console.log('We have an error: ' +/*  JSON.stringify */err ))
 
     
 

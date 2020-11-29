@@ -17,7 +17,7 @@ handleSubmit = e =>{
     e.preventDefault();
     const {noteName,  noteContent} = e.target;
     
-    console.log(noteContent.value)
+    //console.log(noteContent.value)
     if(!noteName.value.trim()){
        return alert('You must submit a value!')
     }
@@ -65,7 +65,9 @@ handleSubmit = e =>{
                         <textarea id='noteContent' name='noteContent' placeholder='Input note content here'></textarea>
                         <label htmlFor='folderChoice'>Note folder: {' '}</label>
 
-                        <select name='folderChoice' onChange={e =>  this.context.selectFolder(e, this.context.folders.filter(folder => folder.name == e.target.value)[0].id)} /* onChange={e => this.context.selectFolder(e, e.target.value.id)} */ required>
+                        <select name='folderChoice' onChange={e =>   this.context
+                                                                            .selectFolder(e, this.context.folders
+                                                                            .filter(folder => folder.name.includes(e.target.value))[0].id)} required>
                          <option/>
                          {this.context.folders.map(folder =>
                         <option name={folder.name}

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route, Link, NavLink} from 'react-router-dom';
+import {Route, Link } from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import NoteListNav from '../NoteListNav/NoteListNav';
 import NotePageNav from '../NotePageNav/NotePageNav';
@@ -70,7 +70,7 @@ class App extends Component {
          this.setState({
              selectedFolder: id
          })
-         console.log('handleSelectFolderIsWorking')
+        // console.log('handleSelectFolderIsWorking')
      }
      handleSelectNote = (event, id) =>{
         //console.log(event.target.value);
@@ -79,7 +79,7 @@ class App extends Component {
         this.setState({
             selectedNote: id
         })
-        console.log('handleSelectNoteIsWorking')
+        //console.log('handleSelectNoteIsWorking')
     }
 
 
@@ -138,7 +138,7 @@ class App extends Component {
                     <nav className="App__nav"><FormError>{this.renderNavRoutes()}</FormError></nav>
                     <header className="App__header">
                         <h1>
-                            <NavLink to="/" onClick={e => this.context.selectFolder(e, "")}>Noteful</NavLink>{' '}
+                            <Link to="/" onClick={e => this.context.selectFolder(e, "")}>Noteful</Link>{' '}
                             <FontAwesomeIcon icon="check-double" />
                         </h1>
                     </header>
