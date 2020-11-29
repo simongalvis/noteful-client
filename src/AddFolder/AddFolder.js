@@ -15,9 +15,9 @@ class AddFolder extends React.Component{
 
 handleSubmit = e =>{
     e.preventDefault();
-    const { folderTitle, id } = e.target; 
+    const { folderTitle } = e.target; 
     
-    
+    console.log(folderTitle.id)
     if (!folderTitle.value.trim()){
         
        return alert("You must submit a value!");
@@ -25,8 +25,8 @@ handleSubmit = e =>{
     
     
     const folder = {
-        id: id.value,
-        name: folderTitle.value,
+       // id: id.value,
+        title: folderTitle.value,
         
     }
 
@@ -49,7 +49,7 @@ handleSubmit = e =>{
     
     .then(data => this.context.addFolder(data))
     .then(this.props.history.push('/'))
-    .catch(err => console.log('We have an error: ' + err))
+    .catch(err => console.log('We have an error: ' + JSON.stringify(err) ))
 
     
 
