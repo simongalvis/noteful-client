@@ -43,7 +43,7 @@ export default class Note extends React.Component {
     return (
       <div className='Note'>
         <h2 className='Note__title'>
-          <Link to={`/note/${id}`}>
+          <Link to={`/note/${id}`} onClick={e => this.context.selectNote(e, id)}>
             {name}
           </Link>
         </h2>

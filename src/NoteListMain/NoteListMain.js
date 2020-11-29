@@ -9,16 +9,16 @@ import { getNotesForFolder } from '../notes-helpers'
 import './NoteListMain.css'
 
 export default class NoteListMain extends React.Component {
-  static defaultProps = {
+   static defaultProps = {
     match: {
       params: {}
     }
-  }
+  } 
   static contextType = ApiContext
 
   render() {
     const { notes=[] } = this.context
-    const { folderId } = this.props.match.params
+    const  folderId = this.context.selectedFolder
     const notesForFolder = getNotesForFolder(notes, folderId)
     return (
       <section className='NoteListMain'>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route, Link} from 'react-router-dom';
+import {Route, Link, NavLink} from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import NoteListNav from '../NoteListNav/NoteListNav';
 import NotePageNav from '../NotePageNav/NotePageNav';
@@ -17,7 +17,8 @@ class App extends Component {
     state = {
         notes: [],
         folders: [],
-        selectedFolder:''
+        selectedFolder:'',
+        selectedNote:''
     };
 
     componentDidMount() {
@@ -62,15 +63,24 @@ class App extends Component {
      }
      handleSelectFolder = (event, id) =>{
          //console.log(event.target.value);
-         let folderObj = this.state.folders.filter((folder) =>{
+         /* let folderObj = this.state.folders.filter((folder) =>{
              return folder.name === event.target.value
-         })
+         }) */
          //console.log(folderObj)
          this.setState({
-             selectedFolder: folderObj[0].id
+             selectedFolder: id
          })
-        // console.log('handleSelectFolderIsWorking')
+         console.log('handleSelectFolderIsWorking')
      }
+     handleSelectNote = (event, id) =>{
+        //console.log(event.target.value);
+        
+        //console.log(folderObj)
+        this.setState({
+            selectedNote: id
+        })
+        console.log('handleSelectNoteIsWorking')
+    }
 
 
 
@@ -114,10 +124,12 @@ class App extends Component {
             notes: this.state.notes,
             folders: this.state.folders,
             selectedFolder: this.state.selectedFolder,
+            selectedNote:this.state.selectedNote,
             deleteNote: this.handleDeleteNote,
             addFolder: this.handleAddFolder,
             addNote:this.handleAddNote,
             selectFolder: this.handleSelectFolder,
+            selectNote:this.handleSelectNote
             
         };
         return (
@@ -126,7 +138,7 @@ class App extends Component {
                     <nav className="App__nav"><FormError>{this.renderNavRoutes()}</FormError></nav>
                     <header className="App__header">
                         <h1>
-                            <Link to="/">Noteful</Link>{' '}
+                            <NavLink to="/" onClick={e => this.context.selectFolder(e, "")}>Noteful</NavLink>{' '}
                             <FontAwesomeIcon icon="check-double" />
                         </h1>
                     </header>
