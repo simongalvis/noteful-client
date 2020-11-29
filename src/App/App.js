@@ -138,7 +138,7 @@ class App extends Component {
                     <nav className="App__nav"><FormError>{this.renderNavRoutes()}</FormError></nav>
                     <header className="App__header">
                         <h1>
-                            <Link to="/" onClick={e => this.context.selectFolder(e, "")}>Noteful</Link>{' '}
+                            <Link to="/" onClick={e => this.context.selectFolder(e, "")}>NotePerfect</Link>{' '}
                             <FontAwesomeIcon icon="check-double" />
                         </h1>
                     </header>
